@@ -1,0 +1,66 @@
+@@START_UP_TABLE
+    TEST_DIE            = 1;
+    PROGRAM_NAME        = TRIGGER_RF.prg;
+    PATTERN_NAME        = RF_TRIGGER.sd,RF280US.sr,RF4MS.sr;
+    PATTERN_HEAD        = TRIGGER_RF.hed;
+    TIMING_NAME         = TRIGGER_RF.tim;
+    DSP_PATTERN_NAME    = NULL;                        				  
+    APG_NAME            = NULL;
+    USE_APG_RESOURCE    = NULL; 
+    SYSTEM_CLK          = 200Mhz;
+    IGNORE_PATTERN_BREAK= OFF;
+    OVERWRITE           = OFF;
+    CSV_FILE_OUTPUT     = ON;                    //ON/OFF CSV file           for production run
+    LOG_FILE_OUTPUT     = OFF;                   //ON/OFF/LOG_DC_ON LOG file for production run
+    SUM_FILE_OUTPUT     = OFF;                   //ON/OFF SUM file           for production run
+    GROSS_DIE           = 1;
+    DIE_SIZE            = LQFN44-10X10;
+    DVC_NAME            = PT054;
+    SUB_DVC_NAME        = FT;
+    SORT_TABLE          = OFF;
+    TESTER_TYPE=7D;
+    BIN_MAP_TABLE       = NEW_HARDWARE_BIN_STYLE; 
+  @@END_START_UP_TABLE
+
+  @@INTERACTIVE_TABLE
+    INTERACTIVE_SHOW    = TRUE;
+    DESCRIPTION
+            AAAAAAAAABBBBBBBBBCCCCCCDDDDDDD,
+            EEEEEEEEFFFFFGGGGGGGGGHHHHHHHHH.
+    END_DESCRIPTION
+  @@END_INTERACTIVE_TABLE
+
+
+@@PIN_DEFINE_TABLE
+  TRIGGER,   io,   1,1;
+     PAEN,   io,   2,2;               
+@@END_PIN_DEFINE_TABLE //須檢查DVC_PIN_NO不可有相同的數字MIP_BLOCK9_LCPMU1出現;SITE1~SITE8中,CHN_NO也不, 有相同的數字(PIN)出現
+                                                          
+                                                          
+//@@USER_RELAY_TABLE  //TEST_DIE=1時,不用建;或PROGRAM中沒用到時,也可不用建
+//@@END_USER_RELAY_TABLE //須檢查不可重覆設(EX:1若出現在此TABLE中兩次,即為重覆)
+
+@@PIN_GROUP_TABLE
+  IO_PINS, ["1"];
+@@END_PIN_GROUP_TABLE
+
+@@PARAMETRIC_TABLE  // unit: V,A,mA,uA
+    VCC,              3.0,        5.0,       7.4,      V;
+    Compare,          0.5,        2,         4,        mA;//ma,ua,na,A
+    Fwait,            1,          2,         4,        mS;//s,ms,us
+    Wait2,            50,         200,       400,      uS;
+@@END_PARAMETRIC_TABLE
+
+@@BIN_MAP
+//  SOFTWARE_BIN(1-200 only)    HARDWARE_BIN        fail(0,1 only)     ink/sort(0~7 only)
+//  (unsigned int)              (unsigned int)      (unsigned int)     (unsigned int)
+     1,					  1,	 	1,		0;
+     2,				  	2,		0,		1;
+     3,				  	3,		0,		1;
+     4,				  	4,		0,		1;
+     5,				  	5,		0,		1;
+@@END_BIN_MAP
+
+@@SOFTWARE_BIN_GOOD_DVC
+    GOOD1=1; //這裡有定義的一定要在BIN_MAP中的SOFTWARE_BIN中找得到,否則為error
+@@END_SOFTWARE_BIN_GOOD_DVC

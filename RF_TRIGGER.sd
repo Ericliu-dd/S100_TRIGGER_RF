@@ -1,0 +1,33 @@
+HEAD[PIN_NAME]:
+  TRIGGER,
+  PAEN,
+END_HEAD;
+@@PATTERN_DEFINE
+ST280Us:00;
+        00;
+        00; 
+        00;
+        00;SUB_CONT_ON RF280US:ST;
+        00;//here
+        00;
+        00;
+        00;
+        00;
+SP280Us:00;
+  ST4MS:00;
+        00;
+        00; 
+        00;
+        00;SUB_CONT_ON RF4MS:ST;
+        00;//here
+        00;
+        00;
+        00;
+        00;
+  SP4MS:00;
+@@END_PATTERN_DEFINE
+    
+    
+    
+    
+    

@@ -1,0 +1,4 @@
+[block_id                                   pat_name load_addr pat_count block_size]
+  0                                       RF280US.SR         0        21         21
+  0                                         RF4MS.SR        21        47         47
+100                                    RF_TRIGGER.SD     65536        22        790

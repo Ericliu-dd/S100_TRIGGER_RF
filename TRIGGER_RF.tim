@@ -1,0 +1,45 @@
+@@TIMING_DEFINE
+
+  @@GROUP_1
+    @@AC_SET_1
+      [NAME=XX1]
+      [TS]
+         PERIOD               = 100NS;//100NS
+         IO/F_MUX_EDGE        = NULL;
+         IO_MUX_ENABLE        = NULL;
+         F_MUX_ENABLE         = NULL;
+         WINDOW_STROBE_ENABLE = NULL;
+         
+         TRIGGER:    {DRV_RS  = 10NS}
+                     {DRV_FL  = 70NS}
+                     {STB_RS  = 30NS}
+      [END_TS]
+      
+      [FMT]
+         TRIGGER:    {DRV_FMT = NRZ}
+      [END_FMT]
+    @@END_AC_SET_1
+    
+    @@AC_SET_2
+      [NAME=XX2]
+      [TS]
+         PERIOD               = 10NS;
+         IO/F_MUX_EDGE        = NULL;
+         IO_MUX_ENABLE        = NULL;
+         F_MUX_ENABLE         = NULL;
+         WINDOW_STROBE_ENABLE = NULL;
+         
+           "1,2":    {DRV_RS  =  5NS}
+                     {DRV_FL  = 10NS}
+                     {STB_RS  =  5NS}
+      [END_TS]
+      
+      [FMT]
+           "1,2":    {DRV_FMT = NF}
+      [END_FMT]
+    @@END_AC_SET_2
+    
+    
+  @@END_GROUP_1
+
+@@END_TIMING_DEFINE

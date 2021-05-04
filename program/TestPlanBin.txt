@@ -1,0 +1,9 @@
+Project file name: TRIGGER_RF.prj
+GOOD:1,
+TestPlan_Name                                     Software_Bin   Hardware_Bin
+TRIGGER_RF                                                   2              2
+RF_5841_INIT                                                 2              2
+RF_5830_INIT                                                 2              2
+RF_GAIN                                                      2              2
+RF_EVM_4MS                                                   2              2
+RF_EVM_280US                                                 2              2

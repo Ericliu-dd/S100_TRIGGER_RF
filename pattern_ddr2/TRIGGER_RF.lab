@@ -1,0 +1,6 @@
+                                RF_TRIGGER:ST280US  0x00000000
+                                RF_TRIGGER:SP280US  0x0000000A
+                                  RF_TRIGGER:ST4MS  0x0000000B
+                                  RF_TRIGGER:SP4MS  0x00000015
+                                        RF280US:ST  0x00000000
+                                          RF4MS:ST  0x00000000

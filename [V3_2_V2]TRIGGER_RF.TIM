@@ -1,0 +1,43 @@
+@@TIMING_DEFINE
+  @@GROUP_1-3T //System Clock=300.000000MHZ , Timing Resolution = 3.333333NS
+    [TIMING RESOLUTION=3.333333NS]
+    @@DRV_FALL_ADJUST
+       [NAME=$SYS$_G1]
+       1,2             :{ DRV_FALL_ADJUST = -1.562500NS }
+    @@END_DRV_FALL_ADJUST
+    @@AC_SET_1
+      [NAME=XX1]
+      [TS]
+         PERIOD=30T; //Seting=100.000000NS,Delta=0.000000NS
+         IO/F_MUX_EDGE        = NULL;
+         IO_MUX_ENABLE        = NULL;
+         F_MUX_ENABLE         = NULL;
+         WINDOW_STROBE_ENABLE = NULL;
+         TRIGGER:        { DRV_RS  = 3T          }//Setting=10.000000NS,Delta=0.000000NS
+                         { DRV_FL  = 21T         }//Setting=70.000000NS,Delta=0.000000NS
+                         { STB_RS  = 9T          }//Setting=30.000000NS,Delta=0.000000NS
+      [END_TS]
+      [FMT]
+         TRIGGER:    {DRV_FMT = NRZ}
+      [END_FMT]
+    @@END_AC_SET_1
+    @@AC_SET_2 //[MASTER]
+      [NAME=XX2]
+      [TS]
+         PERIOD=3T; //Seting=10.000000NS,Delta=0.000000NS
+         IO/F_MUX_EDGE        = NULL;
+         IO_MUX_ENABLE        = NULL;
+         F_MUX_ENABLE         = NULL;
+         WINDOW_STROBE_ENABLE = NULL;
+         1,2:            { DRV_RS  = 1T          }//Setting=5.000000NS,Delta=0.166667NS
+                         { DRV_FL  = 3T          }//Setting=10.000000NS,Delta=0.062500NS
+                         { STB_RS  = 1T          }//Setting=5.000000NS,Delta=0.166667NS
+                         { DRV_DLY = 1.500000NS  }
+                         { STB_DLY = 1.500000NS  }
+      [END_TS]
+      [FMT]
+           "1,2":    {DRV_FMT = NF}
+      [END_FMT]
+    @@END_AC_SET_2
+  @@END_GROUP_1
+@@END_TIMING_DEFINE
